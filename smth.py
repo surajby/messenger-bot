@@ -5,10 +5,10 @@ import requests
 import speak
 app = Flask(__name__)
 
-PAT='EAABuoWG7a6QBAFAhZAPTmv8ZA7RIj9GZBoE9qwMs6KBVez8fFGvkh9Vv3qPtQ6dll61L4EZAWlmdZAb1JjUZCHZCSgZAUiEFPgGwiZADGUe05IZAUOSQU2tUvfG1YcZArhbyvs0W1QKmG4wZBJcapTZA8gCrx5kfMi2jduyGu3da6UqVAyrRq1KpsZA0Wl'
+PAT=''
 @app.route('/',methods=['GET'])
 def handle_verification():
-    if request.args.get('hub.verify_token','') == 'brahma_eswara_maheswara':
+    if request.args.get('hub.verify_token','') == '':
         return request.args.get('hub.challenge','')
     else:
         return "is it to late to say sorry, coz im literally missing a body"
@@ -30,7 +30,8 @@ def messaging_events(payload):
             yield event['sender']['id'], "Oops!"
             
 def send_message(token, recipient, text):
-    r = requests.post(speak.response("https://graph.facebook.com/v2.6/me/messages"),
+    #use speak.response for bot response
+    r = requests.post("https://graph.facebook.com/v2.6/me/messages",
 params={"access_token": token},
 data=json.dumps({
   "recipient": {"id": recipient},
