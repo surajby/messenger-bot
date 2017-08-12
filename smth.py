@@ -30,7 +30,7 @@ def messaging_events(payload):
             yield event['sender']['id'], "Oops!"
             
 def send_message(token, recipient, text):
-    r = requests.post("https://graph.facebook.com/v2.6/me/messages",
+    r = requests.post(response("https://graph.facebook.com/v2.6/me/messages"),
 params={"access_token": token},
 data=json.dumps({
   "recipient": {"id": recipient},
@@ -38,7 +38,7 @@ data=json.dumps({
 }),
 headers={'Content-type': 'application/json'})
     if r.status_code != requests.codes.ok:
-        print response(r.text)
+        print r.text
 
 if __name__ == '__main__':
   app.run()                        
