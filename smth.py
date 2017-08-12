@@ -2,7 +2,7 @@ from flask import Flask, request
 import json
 import requests
 
-
+import speak
 app = Flask(__name__)
 
 PAT='EAABuoWG7a6QBAFAhZAPTmv8ZA7RIj9GZBoE9qwMs6KBVez8fFGvkh9Vv3qPtQ6dll61L4EZAWlmdZAb1JjUZCHZCSgZAUiEFPgGwiZADGUe05IZAUOSQU2tUvfG1YcZArhbyvs0W1QKmG4wZBJcapTZA8gCrx5kfMi2jduyGu3da6UqVAyrRq1KpsZA0Wl'
@@ -30,7 +30,7 @@ def messaging_events(payload):
             yield event['sender']['id'], "Oops!"
             
 def send_message(token, recipient, text):
-    r = requests.post(response("https://graph.facebook.com/v2.6/me/messages"),
+    r = requests.post(speak.response("https://graph.facebook.com/v2.6/me/messages"),
 params={"access_token": token},
 data=json.dumps({
   "recipient": {"id": recipient},
