@@ -1,0 +1,42 @@
+{"intents": [
+        {"tag": "greeting",
+         "patterns": ["Hi", "How are you?", "Sup?", "Hello", "Good day"],
+         "responses": ["Hello, how are you?", "Good to see you", "Hi there, how can I help?"],
+         "context_set": ""
+        },
+        {"tag": "goodbye",
+         "patterns": ["Bye", "See you later", "Goodbye"],
+         "responses": ["See you later","Nice talking to you", "Have a nice day", "Bye! Text back soon"]
+        },
+        {"tag": "thanks",
+         "patterns": ["Thanks", "Thank you", "That's helpful"],
+         "responses": ["Happy to help!", "Any time!", "My pleasure"]
+        },
+        {"tag": "hours",
+         "patterns": ["When are you free?", "What are your hours?", "When can we find you?" ],
+         "responses": ["I'm free during weekends", "Weekends!!"]
+        },
+        {"tag": "work",
+         "patterns": ["how's work?", "What are you doing", "Where are you working" ],
+         "responses": ["digital design and verification, seems pretty manageable", "working for most part of the day, need recreation!"]
+        },
+        {"tag": "payments",
+         "patterns": ["how much do you get paid?","how much do they pay" ],
+         "responses": ["decent", "can survive!"]
+        },
+        {"tag": "freetime",
+         "patterns": ["what do you do in otherwise", "What do you do when free?","how do you pass time?"],
+         "responses": ["I try doing random software things", "Reading these days"]
+        },
+        {"tag": "books",
+         "patterns": ["which books are you reading", "fiction or non-fiction?", "what are you reading" ],
+         "responses": ["reading innovators by walter isaacson", "read kite runners"],
+         "context_set": "about"
+        },
+        {"tag": "contact",
+         "patterns": ["contact"],
+         "responses": ["doddanakundi","fb messenger"],
+         "context_filter": "about"
+        }
+   ]
+}

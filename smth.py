@@ -2,6 +2,7 @@ from flask import Flask, request
 import json
 import requests
 
+
 app = Flask(__name__)
 
 PAT='EAABuoWG7a6QBAIWfB2ByEZBcAFjSSFML8oZAehwZCYLZBZB1T7iyJzqCO8PKb1ZCAfHhCIY96m8b2Ss1wDNK3qXZBZCgEuoLB2crKgs5IxWfuAytpZCby6V6VwUKMAPjKqcttfodTAbjZACf8NQ2U1Taatzl4cdlz21PEZCaBxiVVv22Nl2XA17hhck'
@@ -10,7 +11,7 @@ def handle_verification():
     if request.args.get('hub.verify_token','') == 'brahma_eswara_maheswara':
         return request.args.get('hub.challenge','')
     else:
-        return "is it to late to say sorry, coz im literally missing body"
+        return "is it to late to say sorry, coz im literally missing a body"
         
 @app.route('/',methods=['POST'])
 def handle_messages():
@@ -37,7 +38,7 @@ data=json.dumps({
 }),
 headers={'Content-type': 'application/json'})
     if r.status_code != requests.codes.ok:
-        print r.text
+        print response(r.text)
 
 if __name__ == '__main__':
   app.run()                        
